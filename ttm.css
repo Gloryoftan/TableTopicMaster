@@ -77,7 +77,13 @@ p {
 }
 
 #scene2,
-#scene3 {
+#scene3,
+#scene4,
+#scene5,
+#scene6,
+#scene7,
+#scene8,
+#scene9 {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -85,6 +91,14 @@ p {
     width: 160vh;
 }
 
-#scene2BtnGroup {
+#scene2BtnGroup,
+#scene3BtnGroup,
+#scene4BtnGroup,
+#scene5BtnGroup,
+#scene6BtnGroup,
+#scene7BtnGroup,
+#scene8BtnGroup,
+#scene9BtnGroup {
     display: none;
+
 }
