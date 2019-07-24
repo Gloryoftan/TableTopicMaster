@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/bootstrap.css">
     <link rel="stylesheet" href="ttm.css">
     <title>TTM</title>
 </head>
@@ -62,10 +63,60 @@
                 <div class="title">财产</div>
                 <div class="data">0</div>
             </div>
-
         </div>
+
+        <div id="curtain">
+            <!-- 起名 -->
+            <div id="scene1">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">姓名</span>
+                    </div>
+                    <input id="babyName" type="text" class="form-control" aria-label="Large"
+                        aria-describedby="inputGroup-sizing-sm">
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input"
+                        value="1">
+                    <label class="custom-control-label" for="customRadioInline1">男</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input"
+                        value="0">
+                    <label class="custom-control-label" for="customRadioInline2">女</label>
+                </div>
+                <button id="scene1Btn" type="button" class="btn btn-outline-primary">GO!</button>
+            </div>
+
+            <!-- 诞生 -->
+            <div id="scene2">
+                <h1>诞生！</h1>
+                <p>在一个风和日丽的午后，庄晓曼来到了这个世界上。</p>
+                <p>庄晓曼诞生在一个中国家庭，这意味着，从你出生的那一刻，就进入了一场名为高考的备战。</p>
+                <div id="scene2BtnGroup">
+                    <button id="scene2btn" type="button" class="btn btn-outline-primary">GO!</button>
+                </div>
+            </div>
+
+            <!-- 幼儿园 -->
+            <div id="scene3">
+                <h1>幼儿园</h1>
+                <p>转眼，庄晓曼已经3岁了，上幼儿园了。</p>
+                <p>你看着TA，顿觉得一阵恍惚，不是因为高血压，而是想起了自己儿时的种种回忆。</p>
+                <p>今年夏天，你准备用什么样的方式来让庄晓曼度过TA的第一个暑假呢？</p>
+                <div id="scene3BtnGroup">
+                    <button id="scene3btnA" type="button" class="btn btn-outline-primary">GO!</button>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
-    <script src="ttm.js"></script>
+    <script type="text/javascript" src="bootstrap-4.0.0/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="jQuery-v3.4.1.js"></script>
+    <script type="text/javascript" src="ttm.js"></script>
 </body>
 
 </html>

@@ -45,12 +45,46 @@ img {
     background-image: url("img/xihuan-2.png");
 }
 
-#TTM .status .title{
+#TTM .status .title {
     font-size: 20px;
     margin-right: 2px;
 }
 
-#TTM .status .data{
+#TTM .status .data {
     font-size: 20px;
     margin-left: 10px;
+}
+
+p {
+    display: none;
+}
+
+#curtain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#scene1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40vh;
+    height: 40vh;
+}
+
+#scene2,
+#scene3 {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 160vh;
+}
+
+#scene2BtnGroup {
+    display: none;
 }
