@@ -100,5 +100,10 @@ p {
 #scene8BtnGroup,
 #scene9BtnGroup {
     display: none;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
+button {
+    margin-bottom: 10px;
 }
