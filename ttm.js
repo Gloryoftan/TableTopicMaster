@@ -91,6 +91,11 @@ let babyTA = "TA";
 let babyLove = "LOVE";
 let aBabyName = document.querySelectorAll("p");
 $("#scene1Btn").click(function () {
+    if(!$('#babyName').val()){
+        alert('先起名！');
+        return;
+    }
+
     babyName = $('#babyName').val() || "没有名字";
     //替换姓名
 
