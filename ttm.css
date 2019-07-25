@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Hiragino Sans GB';
 }
 
 ul,
@@ -59,6 +60,12 @@ p {
     display: none;
 }
 
+p.question {
+    font-size: 24px;
+    font-weight: 800;
+    font-family: 'Hiragino Sans GB';
+}
+
 #curtain {
     display: flex;
     flex-direction: column;
@@ -83,7 +90,9 @@ p {
 #scene6,
 #scene7,
 #scene8,
-#scene9 {
+#scene9,
+#scene10,
+#scene11 {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -98,7 +107,9 @@ p {
 #scene6BtnGroup,
 #scene7BtnGroup,
 #scene8BtnGroup,
-#scene9BtnGroup {
+#scene9BtnGroup,
+#scene10BtnGroup,
+#scene11BtnGroup {
     display: none;
     flex-direction: column;
     justify-content: space-around;

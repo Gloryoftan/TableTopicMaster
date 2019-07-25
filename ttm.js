@@ -81,10 +81,14 @@ function statusAdd(iq, eq, st, ch, pressure, money) {
 }
 statusAdd(iq, eq, st, ch, pressure, money);
 
+//偷懒para
+let lazy = 0;
+
 //scene1起名
 let babyName = "没有名字";
 let babySex = "中性";
-let babyTA = "TA"
+let babyTA = "TA";
+let babyLove = "LOVE";
 let aBabyName = document.querySelectorAll("p");
 $("#scene1Btn").click(function () {
     babyName = $('#babyName').val() || "没有名字";
@@ -93,15 +97,19 @@ $("#scene1Btn").click(function () {
     if ($('#scene1 input:radio:checked').val() == 0) {
         babySex = "女";
         babyTA = "她";
+        babyLove = "男";
     } else if ($('#scene1 input:radio:checked').val() == 1) {
         babySex = "男";
         babyTA = "他";
+        babyLove = "女";
+        lazy = 1;
     }
     for (let i = 0; i < aBabyName.length; i++) {
         console.log(aBabyName[i].innerHTML);
-        aBabyName[i].innerHTML = aBabyName[i].innerHTML.replace(/庄晓曼/g, babyName).replace(/TA/g, babyTA);
+        aBabyName[i].innerHTML = aBabyName[i].innerHTML.replace(/庄晓曼/g, babyName).replace(/TA/g, babyTA).replace(/LOVE/g, babyLove);
     }
     console.log(babyName + babySex);
+    // sceneSwitch("scene1", "scene2");
     sceneSwitch("scene1", "scene2");
 });
 
@@ -169,7 +177,7 @@ $('#scene3BtnD').click(function () {
 $('#scene3BtnE').click(function () {
     swal({
         title: '【天才】',
-        text: "居然敢把3岁孩子锁在家里！把墙壁都涂花了！无意发现他的天赋--绘画。孩子进入重点小学。智商、魅力、财产增加。",
+        text: "居然敢把3岁孩子锁在家里！把墙壁都涂花了！无意发现他的天赋--绘画。进入HomeSchool选择。智商、魅力、财产增加。",
         icon: "success"
     }).then(() => {
         iq += 2;
@@ -223,13 +231,143 @@ $('#scene4BtnC').click(function () {
 $('#scene5BtnA').click(function () {
     swal({
         title: '【考虑不周】',
-        text: "你不想管孩子这么严，但小学生“轰趴”让孩子产生了攀比心理。孩子进入普通初中。情商、体魄增加，财产减少。",
+        text: "你不想管孩子这么严，但小学生“轰趴”让孩子产生了攀比心理。孩子进入普通初中。情商、魅力增加，财产减少。",
         icon: "success"
     }).then(() => {
         eq += 1;
-        st += 1;
+        ch += 1;
         money -= 10000;
         statusAdd(iq, eq, st, ch, pressure, money);
         sceneSwitch("scene5", "scene8");
     });;
 })
+
+$('#scene5BtnB').click(function () {
+    swal({
+        title: '【顾此失彼】',
+        text: "你不希望孩子有攀比心理，但孩子被孤立的风险大大增加。孩子进入普通初中。智商、体魄增加，财产减少。",
+        icon: "success"
+    }).then(() => {
+        iq += 1;
+        st += 1;
+        statusAdd(iq, eq, st, ch, pressure, money);
+        sceneSwitch("scene5", "scene8");
+    });;
+})
+
+$('#scene5BtnC').click(function () {
+    swal({
+        title: '【孩子王】',
+        text: "你通过买礼物的机会，不仅增加了亲子间的信任，也让孩子获得了领导力。孩子进入重点初中。智商、情商、魅力增加，财产减少。",
+        icon: "success"
+    }).then(() => {
+        iq += 1;
+        eq += 1;
+        ch += 1;
+        money -= 5000;
+        statusAdd(iq, eq, st, ch, pressure, money);
+        sceneSwitch("scene5", "scene7");
+    });;
+})
+
+//scene6HomeSchool
+$('#scene6BtnA').click(function () {
+    swal({
+        title: '【真的勇士】',
+        text: "我不知道HomeSchool的后果，但我敬佩这份勇气！",
+        icon: "success"
+    }).then(() => {
+        iq += 1;
+        eq += 1;
+        ch += 1;
+        st += 1;
+        statusAdd(iq, eq, st, ch, pressure, money);
+        sceneSwitch("scene6", "scene7");
+    });;
+})
+
+$('#scene6BtnB').click(function () {
+    swal({
+        title: '【假的勇士】',
+        text: "你敢把3岁小孩锁在家里，却不敢真的面对未知！",
+        icon: "success"
+    }).then(() => {
+        statusAdd(iq, eq, st, ch, pressure, money);
+        sceneSwitch("scene6", "scene7");
+    });;
+})
+
+//scene7重点初中
+$('#scene7BtnA').click(function () {
+    swal({
+        title: '【一厢情愿】',
+        text: "结果孩子只是一厢情愿，是不是和父母学的？",
+        icon: "warning"
+    }).then(() => {
+        iq += 1;
+        eq += 1;
+        statusAdd(iq, eq, st, ch, pressure, money);
+        if (lazy == 0) {
+            sceneSwitch("scene7", "scene9");
+        } else {
+            sceneSwitch("scene7", "scene10");
+        }
+    });;
+})
+
+$('#scene7BtnB').click(function () {
+    swal({
+        title: '【一厢情愿】',
+        text: "孩子一厢情愿而已，想要劝阻也是一厢情愿罢了。",
+        icon: "warning"
+    }).then(() => {
+        iq += 1;
+        eq += 1;
+        statusAdd(iq, eq, st, ch, pressure, money);
+        if (lazy == 0) {
+            sceneSwitch("scene7", "scene9");
+        } else {
+            sceneSwitch("scene7", "scene10");
+        }
+    });;
+})
+
+//scene8普通初中
+$('#scene8BtnA').click(function () {
+    swal({
+        title: '【情窦初开】',
+        text: "情窦初开的孩子，看着孩子，仿佛看到自己的初恋？",
+        icon: "success"
+    }).then(() => {
+        iq += 1;
+        eq += 1;
+        statusAdd(iq, eq, st, ch, pressure, money);
+        if (lazy == 0) {
+            sceneSwitch("scene8", "scene9");
+        } else {
+            sceneSwitch("scene8", "scene10");
+        }
+    });;
+})
+
+$('#scene8BtnB').click(function () {
+    swal({
+        title: '【有缘无分】',
+        text: "相见是是缘，分别是无分。看着孩子，你是否回忆起自己的初恋？",
+        icon: "success"
+    }).then(() => {
+        iq += 1;
+        eq += 1;
+        statusAdd(iq, eq, st, ch, pressure, money);
+        if (lazy == 0) {
+            sceneSwitch("scene8", "scene9");
+        } else {
+            sceneSwitch("scene8", "scene10");
+        }
+    });;
+})
+
+//scene9省重点高中
+
+
+//scene10普通高中
