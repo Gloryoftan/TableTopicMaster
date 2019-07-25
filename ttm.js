@@ -91,7 +91,7 @@ let babyTA = "TA";
 let babyLove = "LOVE";
 let aBabyName = document.querySelectorAll("p");
 $("#scene1Btn").click(function () {
-    if(!$('#babyName').val()){
+    if (!$('#babyName').val()) {
         alert('先起名！');
         return;
     }
@@ -373,6 +373,23 @@ $('#scene8BtnB').click(function () {
 })
 
 //scene9省重点高中
-
+$('#scene9BtnA').click(function () {
+    swal({
+        title: '【教子有方】',
+        text: "头马教你’有力的劝说‘，你学会了吗？",
+        icon: "success"
+    }).then(() => {
+        sceneSwitch("scene9", "scene11");
+    });;
+})
 
 //scene10普通高中
+$('#scene10BtnA').click(function () {
+    swal({
+        title: '【教子无方】',
+        text: "还不赶紧来备稿？",
+        icon: "warning"
+    }).then(() => {
+        sceneSwitch("scene10", "scene11");
+    });;
+})

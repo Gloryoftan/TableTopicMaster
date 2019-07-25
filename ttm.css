@@ -56,12 +56,19 @@ img {
     margin-left: 10px;
 }
 
+h1{
+    font-weight: 800; 
+    margin-bottom: 30px;
+}
+
 p {
     display: none;
+    font-size: 18px;
 }
 
 p.question {
-    font-size: 24px;
+    color: rgb(78, 40, 214);
+    font-size: 28px;
     font-weight: 800;
     font-family: 'Hiragino Sans GB';
 }
