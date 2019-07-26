@@ -49,37 +49,45 @@ function sceneSwitch(preSceneId, nextSceneId) {
 }
 
 //状态栏更新
-let iq = 0;
-let eq = 0;
-let st = 0;
-let ch = 0;
-let pressure = 0;
-let money = 100000;
-let aIq = document.querySelectorAll("#TTM .status .iq .star li");
-let aEq = document.querySelectorAll("#TTM .status .eq .star li");
-let aSt = document.querySelectorAll("#TTM .status .st .star li");
-let aCh = document.querySelectorAll("#TTM .status .ch .star li");
-let oPressure = document.querySelector("#TTM .status .pressure .data");
-let oMoney = document.querySelector("#TTM .status .money .data");
-console.log(aIq);
+// let iq = 0;
+// let eq = 0;
+// let st = 0;
+// let ch = 0;
+// let pressure = 0;
+// let money = 100000;
+// let aIq = document.querySelectorAll("#TTM .status .iq .star li");
+// let aEq = document.querySelectorAll("#TTM .status .eq .star li");
+// let aSt = document.querySelectorAll("#TTM .status .st .star li");
+// let aCh = document.querySelectorAll("#TTM .status .ch .star li");
+// let oPressure = document.querySelector("#TTM .status .pressure .data");
+// let oMoney = document.querySelector("#TTM .status .money .data");
 
-function statusAdd(iq, eq, st, ch, pressure, money) {
-    for (let i = 0; i < iq; i++) {
-        aIq[i].className = "light";
+// function statusAdd(iq, eq, st, ch, pressure, money) {
+//     for (let i = 0; i < iq; i++) {
+//         aIq[i].className = "light";
+//     }
+//     for (let i = 0; i < eq; i++) {
+//         aEq[i].className = "light";
+//     }
+//     for (let i = 0; i < st; i++) {
+//         aSt[i].className = "light";
+//     }
+//     for (let i = 0; i < ch; i++) {
+//         aCh[i].className = "light";
+//     }
+//     oPressure.innerHTML = pressure;
+//     oMoney.innerHTML = money;
+// }
+// statusAdd(iq, eq, st, ch, pressure, money);
+let momStar = 0;
+let aMomStar = document.querySelectorAll("#TTM .status .mom .star li");
+
+function momStarAdd(para) {
+    for (let i = 0; i < para; i++) {
+        aMomStar[i].className = 'light';
     }
-    for (let i = 0; i < eq; i++) {
-        aEq[i].className = "light";
-    }
-    for (let i = 0; i < st; i++) {
-        aSt[i].className = "light";
-    }
-    for (let i = 0; i < ch; i++) {
-        aCh[i].className = "light";
-    }
-    oPressure.innerHTML = pressure;
-    oMoney.innerHTML = money;
 }
-statusAdd(iq, eq, st, ch, pressure, money);
+momStarAdd(momStar);
 
 //偷懒para
 let lazy = 0;
@@ -127,14 +135,11 @@ $('#scene2btn').click(function () {
 $('#scene3BtnA').click(function () {
     swal({
         title: '【费力不讨好】',
-        text: "本以为花钱送上兴趣班可以让孩子得到锻炼，但是没想到孩子好的不学，坏习惯学习了一大堆。孩子进入普通小学。智商、体魄增加，财产减少。",
+        text: "本以为花钱送上兴趣班可以让孩子得到锻炼，但是没想到孩子好的不学，坏习惯学习了一大堆。孩子进入普通小学。",
         icon: "success"
     }).then(() => {
-        iq++;
-        st++;
-        pressure++;
-        money -= 50000;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 2;
+        momStarAdd(momStar);
         sceneSwitch("scene3", "scene5");
     });;
 })
@@ -142,14 +147,11 @@ $('#scene3BtnA').click(function () {
 $('#scene3BtnB').click(function () {
     swal({
         title: '【寓教于乐】',
-        text: "家人的陪伴，让孩子得以更好的成长，但也牺牲了很多时间。孩子进入重点小学。智商、情商、魅力增加，财产减少。",
+        text: "家人的陪伴，让孩子得以更好的成长，但也牺牲了很多时间。孩子进入重点小学。",
         icon: "success"
     }).then(() => {
-        iq++;
-        eq++;
-        ch++;
-        money -= 20000;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 1;
+        momStarAdd(momStar);
         sceneSwitch("scene3", "scene4");
     });;
 })
@@ -157,12 +159,11 @@ $('#scene3BtnB').click(function () {
 $('#scene3BtnC').click(function () {
     swal({
         title: '【得不偿失】',
-        text: "从幼儿园就开始补课，还真是狠啊！孩子因厌学进入普通小学。压力增加，财产减少。",
+        text: "从幼儿园就开始补课，还真是狠啊！孩子因厌学进入普通小学。",
         icon: "warning"
     }).then(() => {
-        pressure += 100;
-        money -= 80000;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 3;
+        momStarAdd(momStar);
         sceneSwitch("scene3", "scene5");
     });;
 })
@@ -170,11 +171,11 @@ $('#scene3BtnC').click(function () {
 $('#scene3BtnD').click(function () {
     swal({
         title: '【焉知非福】',
-        text: "你无忧虑，父母很开心，但孩子被宠坏了！孩子进入普通小学。体魄增加，财产增加。",
+        text: "你无忧虑，父母很开心，但孩子被宠坏了！孩子进入普通小学。",
         icon: "warning"
     }).then(() => {
-        money += 200000;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 1;
+        momStarAdd(momStar);
         sceneSwitch("scene3", "scene5");
     });;
 })
@@ -182,13 +183,11 @@ $('#scene3BtnD').click(function () {
 $('#scene3BtnE').click(function () {
     swal({
         title: '【天才】',
-        text: "居然敢把3岁孩子锁在家里！把墙壁都涂花了！无意发现他的天赋--绘画。进入HomeSchool选择。智商、魅力、财产增加。",
+        text: "居然敢把3岁孩子锁在家里！把墙壁都涂花了！无意发现他的天赋--绘画。进入HomeSchool选择。",
         icon: "success"
     }).then(() => {
-        iq += 2;
-        ch += 2;
-        money += 50000;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 0;
+        momStarAdd(momStar);
         sceneSwitch("scene3", "scene6");
     });;
 })
@@ -197,12 +196,11 @@ $('#scene3BtnE').click(function () {
 $('#scene4BtnA').click(function () {
     swal({
         title: '【不知所云】',
-        text: "你和孩子说家委会成“拼爹会”，但小学生怎懂？孩子进入普通初中。情商、压力增加。",
+        text: "你和孩子说家委会成“拼爹会”，但小学生怎懂？孩子进入普通初中。",
         icon: "success"
     }).then(() => {
-        eq += 1;
-        pressure += 100;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 1;
+        momStarAdd(momStar);
         sceneSwitch("scene4", "scene8");
     });;
 })
@@ -210,11 +208,11 @@ $('#scene4BtnA').click(function () {
 $('#scene4BtnB').click(function () {
     swal({
         title: '【潜水员】',
-        text: "你不愿面对的事情，孩子迟早有一天会需要亲自处理。孩子进入普通初中。情商增加。",
+        text: "你不愿面对的事情，孩子迟早有一天会需要亲自处理。孩子进入普通初中。",
         icon: "success"
     }).then(() => {
-        eq += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 0;
+        momStarAdd(momStar);
         sceneSwitch("scene4", "scene8");
     });;
 })
@@ -222,12 +220,11 @@ $('#scene4BtnB').click(function () {
 $('#scene4BtnC').click(function () {
     swal({
         title: '【多劳多得】',
-        text: "因为家委付出多，孩子获照顾。没错，这也是一种中国特色。孩子进入重点初中。智商、情商增加。",
+        text: "因为家委付出多，孩子获照顾。没错，这也是一种中国特色。孩子进入重点初中。",
         icon: "success"
     }).then(() => {
-        iq += 1;
-        eq += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 2;
+        momStarAdd(momStar);
         sceneSwitch("scene4", "scene7");
     });;
 })
@@ -236,13 +233,11 @@ $('#scene4BtnC').click(function () {
 $('#scene5BtnA').click(function () {
     swal({
         title: '【考虑不周】',
-        text: "你不想管孩子这么严，但小学生“轰趴”让孩子产生了攀比心理。孩子进入普通初中。情商、魅力增加，财产减少。",
+        text: "你不想管孩子这么严，但小学生“轰趴”让孩子产生了攀比心理。孩子进入普通初中。",
         icon: "success"
     }).then(() => {
-        eq += 1;
-        ch += 1;
-        money -= 10000;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 0;
+        momStarAdd(momStar);
         sceneSwitch("scene5", "scene8");
     });;
 })
@@ -250,12 +245,11 @@ $('#scene5BtnA').click(function () {
 $('#scene5BtnB').click(function () {
     swal({
         title: '【顾此失彼】',
-        text: "你不希望孩子有攀比心理，但孩子被孤立的风险大大增加。孩子进入普通初中。智商、体魄增加，财产减少。",
+        text: "你不希望孩子有攀比心理，但孩子被孤立的风险大大增加。孩子进入普通初中。",
         icon: "success"
     }).then(() => {
-        iq += 1;
-        st += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 2;
+        momStarAdd(momStar);
         sceneSwitch("scene5", "scene8");
     });;
 })
@@ -263,14 +257,11 @@ $('#scene5BtnB').click(function () {
 $('#scene5BtnC').click(function () {
     swal({
         title: '【孩子王】',
-        text: "你通过买礼物的机会，不仅增加了亲子间的信任，也让孩子获得了领导力。孩子进入重点初中。智商、情商、魅力增加，财产减少。",
+        text: "你通过买礼物的机会，不仅增加了亲子间的信任，也让孩子成为了孩子王。孩子进入重点初中。",
         icon: "success"
     }).then(() => {
-        iq += 1;
-        eq += 1;
-        ch += 1;
-        money -= 5000;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 0;
+        momStarAdd(momStar);
         sceneSwitch("scene5", "scene7");
     });;
 })
@@ -282,11 +273,8 @@ $('#scene6BtnA').click(function () {
         text: "我不知道HomeSchool的后果，但我敬佩这份勇气！",
         icon: "success"
     }).then(() => {
-        iq += 1;
-        eq += 1;
-        ch += 1;
-        st += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 0;
+        momStarAdd(momStar);
         sceneSwitch("scene6", "scene7");
     });;
 })
@@ -297,7 +285,8 @@ $('#scene6BtnB').click(function () {
         text: "你敢把3岁小孩锁在家里，却不敢真的面对未知！",
         icon: "success"
     }).then(() => {
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 2;
+        momStarAdd(momStar);
         sceneSwitch("scene6", "scene7");
     });;
 })
@@ -309,9 +298,8 @@ $('#scene7BtnA').click(function () {
         text: "结果孩子只是一厢情愿，是不是和父母学的？",
         icon: "warning"
     }).then(() => {
-        iq += 1;
-        eq += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 0;
+        momStarAdd(momStar);
         if (lazy == 0) {
             sceneSwitch("scene7", "scene9");
         } else {
@@ -326,9 +314,8 @@ $('#scene7BtnB').click(function () {
         text: "孩子一厢情愿而已，想要劝阻也是一厢情愿罢了。",
         icon: "warning"
     }).then(() => {
-        iq += 1;
-        eq += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 2;
+        momStarAdd(momStar);
         if (lazy == 0) {
             sceneSwitch("scene7", "scene9");
         } else {
@@ -341,12 +328,11 @@ $('#scene7BtnB').click(function () {
 $('#scene8BtnA').click(function () {
     swal({
         title: '【情窦初开】',
-        text: "情窦初开的孩子，看着孩子，仿佛看到自己的初恋？",
+        text: "你始终相信事情积极的一面，这也深深的影响了孩子。",
         icon: "success"
     }).then(() => {
-        iq += 1;
-        eq += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 0;
+        momStarAdd(momStar);
         if (lazy == 0) {
             sceneSwitch("scene8", "scene9");
         } else {
@@ -358,12 +344,11 @@ $('#scene8BtnA').click(function () {
 $('#scene8BtnB').click(function () {
     swal({
         title: '【有缘无分】',
-        text: "相见是是缘，分别是无分。看着孩子，你是否回忆起自己的初恋？",
+        text: "相见是有缘，分别是无分。但你相信你做出了正确的选择。",
         icon: "success"
     }).then(() => {
-        iq += 1;
-        eq += 1;
-        statusAdd(iq, eq, st, ch, pressure, money);
+        momStar += 2;
+        momStarAdd(momStar);
         if (lazy == 0) {
             sceneSwitch("scene8", "scene9");
         } else {
@@ -379,6 +364,20 @@ $('#scene9BtnA').click(function () {
         text: "头马教你’有力的劝说‘，你学会了吗？",
         icon: "success"
     }).then(() => {
+        momStar += 3;
+        momStarAdd(momStar);
+        sceneSwitch("scene9", "scene11");
+    });;
+})
+
+$('#scene9BtnB').click(function () {
+    swal({
+        title: '【教子无方】',
+        text: "还不赶紧来备稿？",
+        icon: "warning"
+    }).then(() => {
+        momStar += 0;
+        momStarAdd(momStar);
         sceneSwitch("scene9", "scene11");
     });;
 })
@@ -386,10 +385,24 @@ $('#scene9BtnA').click(function () {
 //scene10普通高中
 $('#scene10BtnA').click(function () {
     swal({
+        title: '【教子有方】',
+        text: "头马教你’有力的劝说‘，你学会了吗？",
+        icon: "success"
+    }).then(() => {
+        momStar += 3;
+        momStarAdd(momStar);
+        sceneSwitch("scene10", "scene11");
+    });;
+})
+
+$('#scene10BtnB').click(function () {
+    swal({
         title: '【教子无方】',
         text: "还不赶紧来备稿？",
         icon: "warning"
     }).then(() => {
+        momStar += 0;
+        momStarAdd(momStar);
         sceneSwitch("scene10", "scene11");
     });;
 })
