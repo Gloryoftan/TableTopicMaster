@@ -1,5 +1,5 @@
 //计时器
-let oTime = document.querySelector("#TTM .status .time");
+let oTime = document.querySelector("#TTM .time");
 let sVal = 600;
 
 setInterval(() => {
@@ -47,6 +47,35 @@ function sceneSwitch(preSceneId, nextSceneId) {
         $('#' + nextSceneId + 'BtnGroup').css('display', 'flex');
     }, delay);
 }
+
+// //范围随机数
+// function _randomValue(start, end) {
+//     if (typeof start == "undefined") {
+//         start = 0;
+//     }
+//     if (typeof end == "undefined") {
+//         end = start + 100;
+//     }
+//     return start + Math.round(Math.random() * (end - start));
+// }
+
+// //随机生成背景渐变色
+// function _randomGradientBgColor() {
+//     var _h = this._randomValue(0, 360);
+//     var _h1 = _h + this._randomValue(20, 60);
+//     var _s = this._randomValue(40, 60);
+//     var _l = this._randomValue(50, 80);
+//     var _ang = this._randomValue(0, 180);
+//     var _gradient = 'linear-gradient(' + _ang + 'deg, hsl(' + _h + ', ' + _s + '%, ' + _l + '%), hsl(' + _h1 + ', ' + _s + '%, ' + _l + '%))';
+//     return _gradient;
+// }
+
+// //改变背景色
+// function changeBg(){
+//     let bgColor = _randomGradientBgColor();
+//     console.bgColor;
+//     $('.question').css('color',bgColor);
+// }
 
 //状态栏更新
 // let iq = 0;
@@ -145,7 +174,7 @@ $('#scene3BtnA').click(function () {
     }).then(() => {
         momStar += 2;
         momStarAdd(momStar);
-        endingGen("ending2","面对‘假期’ ，你选择花钱去上兴趣班，培养兴趣爱好。");
+        endingGen("ending2", "面对‘假期’ ，你选择花钱去上兴趣班，培养兴趣爱好。");
         sceneSwitch("scene3", "scene5");
         // sceneSwitch("scene3", "scene11");
     });;
@@ -159,6 +188,7 @@ $('#scene3BtnB').click(function () {
     }).then(() => {
         momStar += 1;
         momStarAdd(momStar);
+        endingGen("ending2", "面对‘假期’ ，你选择亲自陪伴，寓教于乐。");
         sceneSwitch("scene3", "scene4");
     });;
 })
@@ -171,6 +201,7 @@ $('#scene3BtnC').click(function () {
     }).then(() => {
         momStar += 3;
         momStarAdd(momStar);
+        endingGen("ending2", "面对‘假期’ ，你选择报名学前班，先苦后甜。");
         sceneSwitch("scene3", "scene5");
     });;
 })
@@ -183,6 +214,7 @@ $('#scene3BtnD').click(function () {
     }).then(() => {
         momStar += 1;
         momStarAdd(momStar);
+        endingGen("ending2", "面对‘假期’ ，你选择交给父母，因为你信任他们。");
         sceneSwitch("scene3", "scene5");
     });;
 })
@@ -195,6 +227,7 @@ $('#scene3BtnE').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending2", "面对‘假期’ ，你选择锁在家里，因为你出于好奇。");
         sceneSwitch("scene3", "scene6");
     });;
 })
@@ -208,6 +241,7 @@ $('#scene4BtnA').click(function () {
     }).then(() => {
         momStar += 1;
         momStarAdd(momStar);
+        endingGen("ending3", "面对‘攀比’，你选择努力沟通，但似乎有些心累。");
         sceneSwitch("scene4", "scene8");
     });;
 })
@@ -220,6 +254,7 @@ $('#scene4BtnB').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending3", "面对‘攀比’，你选择置身事外，但也不希望孩子因此而吃亏。");
         sceneSwitch("scene4", "scene8");
     });;
 })
@@ -232,6 +267,7 @@ $('#scene4BtnC').click(function () {
     }).then(() => {
         momStar += 2;
         momStarAdd(momStar);
+        endingGen("ending3", "面对‘攀比’，你选择积极参与，希望孩子因此受益。");
         sceneSwitch("scene4", "scene7");
     });;
 })
@@ -245,6 +281,7 @@ $('#scene5BtnA').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending3", "面对‘攀比’，你选择放手，或者你根本没有多想。");
         sceneSwitch("scene5", "scene8");
     });;
 })
@@ -257,6 +294,7 @@ $('#scene5BtnB').click(function () {
     }).then(() => {
         momStar += 2;
         momStarAdd(momStar);
+        endingGen("ending3", "面对‘攀比’，你选择不放手，希望孩子不要过早接触这些。");
         sceneSwitch("scene5", "scene8");
     });;
 })
@@ -269,6 +307,7 @@ $('#scene5BtnC').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending3", "面对‘攀比’，你选择积极参与，抓住机会教育。");
         sceneSwitch("scene5", "scene7");
     });;
 })
@@ -282,6 +321,7 @@ $('#scene6BtnA').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending3", "面对‘HomeSchool‘，你选择做个理想的现实主义者。");
         sceneSwitch("scene6", "scene7");
     });;
 })
@@ -294,6 +334,7 @@ $('#scene6BtnB').click(function () {
     }).then(() => {
         momStar += 2;
         momStarAdd(momStar);
+        endingGen("ending3", "面对’HomeSchool‘，你选择做个现实的理想主义者。");
         sceneSwitch("scene6", "scene7");
     });;
 })
@@ -307,6 +348,7 @@ $('#scene7BtnA').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending4", "面对’暗恋‘，你并不反对，因为你相信积极的一面。");
         if (lazy == 0) {
             sceneSwitch("scene7", "scene9");
         } else {
@@ -323,6 +365,7 @@ $('#scene7BtnB').click(function () {
     }).then(() => {
         momStar += 2;
         momStarAdd(momStar);
+        endingGen("ending4", "面对‘暗恋’，你坚决反对，因为你也是为了孩子好。");
         if (lazy == 0) {
             sceneSwitch("scene7", "scene9");
         } else {
@@ -340,6 +383,7 @@ $('#scene8BtnA').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending4", "面对’早恋‘，你并不反对，因为你相信积极的一面。");
         if (lazy == 0) {
             sceneSwitch("scene8", "scene9");
         } else {
@@ -356,6 +400,7 @@ $('#scene8BtnB').click(function () {
     }).then(() => {
         momStar += 2;
         momStarAdd(momStar);
+        endingGen("ending4", "面对‘早恋’，你坚决反对，因为你也是为了孩子好。");
         if (lazy == 0) {
             sceneSwitch("scene8", "scene9");
         } else {
@@ -373,6 +418,8 @@ $('#scene9BtnA').click(function () {
     }).then(() => {
         momStar += 3;
         momStarAdd(momStar);
+        endingGen("ending5", "面对‘娱乐沉迷’，你竭尽全力，与孩子达成共识。");
+        endingGen("ending6", "最终重点大学录取可能性" + momStar + "0%");
         sceneSwitch("scene9", "scene11");
     });;
 })
@@ -385,6 +432,8 @@ $('#scene9BtnB').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending5", "面对‘娱乐沉迷’，你竭尽全力，但收效甚微。");
+        endingGen("ending6", "最终重点大学录取可能性" + momStar + "0%");
         sceneSwitch("scene9", "scene11");
     });;
 })
@@ -398,6 +447,8 @@ $('#scene10BtnA').click(function () {
     }).then(() => {
         momStar += 3;
         momStarAdd(momStar);
+        endingGen("ending5", "面对‘电子游戏’，你竭尽全力，与孩子达成共识。");
+        endingGen("ending6", "最终重点大学录取可能性" + momStar + "0%");
         sceneSwitch("scene10", "scene11");
     });;
 })
@@ -410,6 +461,8 @@ $('#scene10BtnB').click(function () {
     }).then(() => {
         momStar += 0;
         momStarAdd(momStar);
+        endingGen("ending5", "面对‘电子游戏’，你竭尽全力，但收效甚微。");
+        endingGen("ending6", "最终重点大学录取可能性" + momStar + "0%");
         sceneSwitch("scene10", "scene11");
     });;
 })
