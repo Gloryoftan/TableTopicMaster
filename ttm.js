@@ -92,6 +92,11 @@ momStarAdd(momStar);
 //偷懒para
 let lazy = 0;
 
+//ending generate
+function endingGen(where, para) {
+    $('#' + where).append(para);
+};
+
 //scene1起名
 let babyName = "没有名字";
 let babySex = "中性";
@@ -140,7 +145,9 @@ $('#scene3BtnA').click(function () {
     }).then(() => {
         momStar += 2;
         momStarAdd(momStar);
+        endingGen("ending2","面对‘假期’ ，你选择花钱去上兴趣班，培养兴趣爱好。");
         sceneSwitch("scene3", "scene5");
+        // sceneSwitch("scene3", "scene11");
     });;
 })
 
