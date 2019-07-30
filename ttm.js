@@ -349,7 +349,7 @@ $('#scene7BtnA').click(function () {
         momStar += 0;
         momStarAdd(momStar);
         endingGen("ending4", "面对’暗恋‘，你并不反对，因为你相信积极的一面。");
-        if (lazy == 0) {
+        if (momStar >= 4) {
             sceneSwitch("scene7", "scene9");
         } else {
             sceneSwitch("scene7", "scene10");
@@ -366,7 +366,7 @@ $('#scene7BtnB').click(function () {
         momStar += 2;
         momStarAdd(momStar);
         endingGen("ending4", "面对‘暗恋’，你坚决反对，因为你也是为了孩子好。");
-        if (lazy == 0) {
+        if (momStar >= 4) {
             sceneSwitch("scene7", "scene9");
         } else {
             sceneSwitch("scene7", "scene10");
